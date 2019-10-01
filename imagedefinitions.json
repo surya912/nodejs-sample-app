@@ -1,9 +1,9 @@
 {
   "taskDefinition": {
-    "family": "hello-world",
+    "family": "first-run-task-definition",
     "containerDefinitions": [
       {
-        "name": "hello-world",
+        "name": "first-run-task-definition",
         "image": "012345678910.dkr.ecr.us-west-2.amazonaws.com/hello-world:6a57b99",
         "cpu": 100,
         "portMappings": [
