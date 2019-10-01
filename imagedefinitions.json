@@ -1,0 +1,21 @@
+{
+    "taskDefinition": {
+      "family": "nodejs-sam-app",
+      "containerDefinitions": [
+        {
+          "name": "nodejs-sam-app",
+          "image": "340638733511.dkr.ecr.us-east-2.amazonaws.com/nodejs-sam-app:latest",
+          "cpu": 100,
+          "portMappings": [
+            {
+              "protocol": "tcp",
+              "containerPort": 80,
+              "hostPort": 80
+            }
+          ],
+          "memory": 128,
+          "essential": true
+        }
+      ]
+    }
+  }
