@@ -1,64 +1,24 @@
 {
-    "ipcMode": null,
-    "executionRoleArn": "arn:aws:iam::340638733511:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::340638733511:role/ecs-role",
     "containerDefinitions": [
-      {
-        "portMappings": [
-          {
-            "hostPort": 80,
-            "protocol": "tcp",
-            "containerPort": 80
-          }
-        ],
-       
-        "image": "340638733511.dkr.ecr.us-east-2.amazonaws.com/nodejs-sam-app:latest",
-        "name": "nodejs-sample-app"
-      }
+        {
+            "name": "nodejs-sam-app",
+            "image": "340638733511.dkr.ecr.us-east-2.amazonaws.com/nodejs-sam-app:latest",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "protocol": "tcp",
+                    "containerPort": 80
+                }
+            ]
+        }
     ],
-    "placementConstraints": [],
-    "memory": "512",
-    "taskRoleArn": null,
-    "compatibilities": [
-      "EC2",
-      "FARGATE"
-    ],
-    "taskDefinitionArn": "arn:aws:ecs:us-east-2:340638733511:task-definition/nodejs:3",
-    "family": "nodejs",
-    "requiresAttributes": [
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "com.amazonaws.ecs.capability.ecr-auth"
-      },
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "ecs.capability.execution-role-ecr-pull"
-      },
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-      },
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "ecs.capability.task-eni"
-      }
-    ],
-    "pidMode": null,
     "requiresCompatibilities": [
-      "EC2"
+        "EC2"
     ],
     "networkMode": "awsvpc",
     "cpu": "256",
-    "revision": 3,
-    "status": "ACTIVE",
-    "inferenceAccelerators": null,
-    "proxyConfiguration": null,
-    "volumes": []
-  }
+    "memory": "512",
+    "family": "ecs-demo"
+}
