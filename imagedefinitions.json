@@ -1,6 +1,24 @@
-[
-    {
-         "name": "TestApp",
-         "imageUri: "340638733511.dkr.ecr.us-east-2.amazonaws.com/nodejs-sam-app:latest"
-    }
-]
+{
+    "executionRoleArn": "arn:aws:iam::340638733511:role/ecsTaskExecutionRole",
+    "containerDefinitions": [
+        {
+            "name": "ecs",
+            "image": "340638733511.dkr.ecr.us-east-2.amazonaws.com/nodejs-sam-app:21235f3",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 3000,
+                    "protocol": "tcp",
+                    "containerPort": 80
+                }
+            ]
+        }
+    ],
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "networkMode": "awsvpc",
+    "cpu": "256",
+    "memory": "512",
+    "family": "ecs-demo"
+}
